@@ -6,7 +6,7 @@ permalink: /
 
 # jaeyoon.github.io
 
-Development notes, UI experiments, and design logs.  
+Dev notes, UI experiments, and design logs.  
 가벼운 개발 노트와 디자인 실험 기록.
 
 ## Pages
