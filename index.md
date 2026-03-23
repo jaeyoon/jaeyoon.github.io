@@ -3,9 +3,6 @@ layout: page
 title: "Home"
 permalink: /
 ---
-
-# jaeyoon.github.io
-
 Dev notes, UI experiments, and design logs.  
 가벼운 개발 노트와 디자인 실험 기록.
 
