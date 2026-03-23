@@ -1,4 +1,4 @@
-# jaeyoon.github.io
+# Jaeyoon
 
 **English:**
 A place for simple notes on development and design experiments.
