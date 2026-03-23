@@ -5,8 +5,12 @@ permalink: /
 ---
 
 # Jaeyoon
-dev notes & experiment logs.
-개발 노트와 실험 기록.
 
+Development notes, UI experiments, and design logs.  
+가벼운 개발 노트와 디자인 실험 기록.
+
+## Pages
 - [About](/about/)
-- [첫 노트 예시](/notes/openpencil-pencil-stitch_KR.md)
+
+## Notes
+- [2026-03-23 — OpenPencil / Pencil / Stitch comparison](/notes/openpencil-pencil-stitch_KR/)
