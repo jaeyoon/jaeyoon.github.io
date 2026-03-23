@@ -10,4 +10,4 @@ Dev notes, UI experiments, and design logs.
 - [About](/about/)
 
 ## Notes
-- [2026-03-23 — OpenPencil / Pencil / Stitch comparison](/notes/openpencil-pencil-stitch_KR/)
+- [2026-03-23 — OpenPencil / Pencil / Stitch comparison](/notes/openpencil-pencil-stitch_KR.md)
