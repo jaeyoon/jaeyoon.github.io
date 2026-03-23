@@ -1,4 +1,4 @@
-# 2026-03-23 Integrated Design Pipeline Final Report
+# 2026-03-23 OpenPencil / Pencil / Stitch Notes
 
 Date: 2026-03-23
 Workspace: `/Workspace/uimorph`
