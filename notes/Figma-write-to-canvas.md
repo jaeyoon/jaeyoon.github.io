@@ -80,6 +80,9 @@ trivia
 	•	pencil.dev는 스타트업 제품치고 꽤 완성도 높음 (a16z 느낌)
 → 기다리는 동안 parallel agents UI는 은근한 재미 + 위로감 있음
 → 다만 API 호출 시 이 경험이 사라지는 점은 아쉬움
+<video controls width="100%" autoplay muted loop playsinline>
+  <source src="[https://pub-xxxx.r2.dev/videos/demo.mp4](https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4)" type="video/mp4">
+</video>
 	•	속도 자체가 느리다기보다, AI 연산속도 대비 툴(MCP 등)과 인간 검토 속도가 병목
 	•	잘 정리된 디자인 시스템/가이드라인은 앞으로
 → 실행 도구라기보다 인간의 중간 검토용, 포트폴리오 성격으로 수렴할 가능성
