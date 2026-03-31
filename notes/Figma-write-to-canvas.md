@@ -79,7 +79,10 @@ cons:
 trivia
 	•	pencil.dev는 스타트업 제품치고 꽤 완성도 높음 (a16z 느낌)
 → 기다리는 동안 parallel agents UI는 은근한 재미 + 위로감 있음
-→ 다만 API 호출 시 이 경험이 사라지는 점은 아쉬움
+→ 단순 eye candy 이긴 하지만 API 호출 시 이 경험이 사라지는 점은 아쉬움
+<img width="1139" height="830" alt="pencil-4-agents-1" src="https://github.com/user-attachments/assets/c0fdde75-2acb-4cda-bd2a-f54857e039b1" />
+
+[![preview]([https://github.com/user-attachments/assets/392b3e3d-2de0-4dcd-b4cd-57e7823a1ce1](https://github.com/user-attachments/assets/c0fdde75-2acb-4cda-bd2a-f54857e039b1))](https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4)
 
 <video controls width="100%" autoplay muted loop playsinline>
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4" type="video/mp4">
@@ -88,6 +91,8 @@ trivia
 	•	속도 자체가 느리다기보다, AI 연산속도 대비 툴(MCP 등)과 인간 검토 속도가 병목
 	•	잘 정리된 디자인 시스템/가이드라인은 앞으로
 → 실행 도구라기보다 인간의 중간 검토용, 포트폴리오 성격으로 수렴할 가능성
+
+
 
 ⸻
 
