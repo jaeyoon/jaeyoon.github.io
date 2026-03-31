@@ -9,7 +9,9 @@
 
 	•	기존 Figma 디자인 (.fig의 node & section)
 	•	URL (HTML) – 테스트 목적의 단순 구조 웹사이트
-<img width="2032" height="1317" alt="Screenshot 2026-03-31 at 5 27 13 PM" src="https://github.com/user-attachments/assets/33c41dff-5c8d-4ab2-a416-69a0dcc058a0" />
+	
+<!-- img width="2032" height="1317" alt="Screenshot 2026-03-31 at 5 27 13 PM" src="https://github.com/user-attachments/assets/33c41dff-5c8d-4ab2-a416-69a0dcc058a0" /-->
+
 
 	2.	분석 (분해)
 입력 데이터를 기반으로 아래 항목을 분리하여 추출
