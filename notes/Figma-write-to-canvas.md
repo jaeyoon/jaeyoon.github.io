@@ -83,8 +83,6 @@ trivia
 → 기다리는 동안 parallel agents UI는 은근한 재미 + 위로감 있음
 → 단순 eye candy 이긴 하지만 API 호출 시 이 경험이 사라지는 점은 아쉬움
 
-[![preview](https://github.com/user-attachments/assets/c0fdde75-2acb-4cda-bd2a-f54857e039b1)](https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4)
-
 <video controls width="100%" autoplay muted loop playsinline>
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4" type="video/mp4">
 </video>
