@@ -66,7 +66,6 @@ Claude builds step-by-step; it treats 'B' as an evolution of 'A,' separating wha
 | URL / Warp.dev | system 1m / variant 4m = 5m | system 4m / variant 2m = 6m |
 | **Total** | **26m** | **21m** |
 
-
 ---
 
 ### Step 5 (Execution)
