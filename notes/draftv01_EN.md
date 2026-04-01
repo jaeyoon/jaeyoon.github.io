@@ -70,9 +70,9 @@ Claude builds step-by-step; it treats 'B' as an evolution of 'A,' separating wha
 
 ### Step 5 (Execution)
 Comparing tools during the "Output" phase. This is mainly limited by which tools support writing to the canvas via MCP.
->• Google Stitch  
-• Pencil.dev  
-• Figma (write to canvas)  
+>• `Google Stitch`    
+• `Pencil.dev`  
+• `Figma (write to canvas)`    
 Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)  
  
 
@@ -92,7 +92,7 @@ Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)
 • Building a setup based on design tokens is expensive. While heavy prompt engineering can improve the details, it is still highly inefficient.  
 
 ### Trivia
-• Pencil.dev produces impressive output for a startup, though the UX can be a bit quirky or non-standard. Their "parallel agents" processing feels like a UI gimmick, but it gives you something nice to look at while you wait (using bio tokens). Unfortunately, it isn't supported via API yet.  
+•``````Pencil.dev`````` produces impressive output for a startup, though the UX can be a bit quirky or non-standard. Their "parallel agents" processing feels like a UI gimmick, but it gives you something nice to look at while you wait (using bio tokens). Unfortunately, it isn't supported via API yet.  
 • OpenPencil: I tested this open-source tool for `.fig` analysis. It's useful for structural checks when you don't have full seat permissions, but it felt limited beyond that.  
 • The lag across AI generation wasn't just model latency—the real bottleneck was the bridge between unoptimized tool setups (MCPs/scripts) and human review speeds compared to raw computing time.  
 • Well-documented design systems will likely fade into being just reference points for humans to check or portfolio pieces, rather than actual blueprints used directly in development.
