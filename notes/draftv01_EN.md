@@ -1,4 +1,4 @@
-While Generative AI produces strong visuals when given more freedom, the real challenge is figuring out if legacy designs can be tokenized and systematized. I recently ran a test to see if Claude and Codex could handle freeform analysis, using MCP (Model Context Protocol) to run design tests directly on canvases like Figma, Stitch, and Pencil.
+Generative AI produces strong visuals when given more freedom, but the real challenge is figuring out if legacy designs can be tokenized and systematized. I ran a series of tests to see how Claude and Codex handle freeform analysis, using MCP (Model Context Protocol) to run design tests directly on canvases like Figma, Stitch, and Pencil.
 
 > **The Workflow:** 1. Input → 2. Analysis → 3. Design System Gen → 4. Variant Gen → 5. Output
 
