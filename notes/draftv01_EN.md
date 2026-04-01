@@ -76,18 +76,21 @@ Comparing tools during the "Output" phase. This is mainly limited by which tools
 Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)  
 
 #### Pencil.dev
+*sidemenu - 3 agents*
 <video controls muted loop playsinline width="600">
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-sidemenu-3-agents.mp4" type="video/mp4">
 </video>
 
+*alertbar - 4 agents*
+<video controls muted loop playsinline width="600">
+  <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4" type="video/mp4">
+</video>
 
 **The Findings:**  
 • All three struggle with fine details. Getting a "pixel-perfect" reproduction right now takes a lot of time and tokens.  
 • Corner radii, margins, and typography adjustments start to break down even with fine-tuning (Figma gives the highest quality out of the three).  
 • Without exact coordinates, tools often fail to recognize existing elements and just blindly overwrite the canvas (This was reduced by using scripts and `skill.md`).  
 • Tiny details like vector icons are frequently left out or altered.  
-
-https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-sidemenu-3-agents.mp4
 
 ---
 ### Takeaways
