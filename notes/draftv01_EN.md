@@ -77,7 +77,7 @@ Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)
 
 
 #### Google Stitch
-*Stitch generated 3 sidemenu variations, but the canvas size is fixed*
+*Stitch generated 3 sidemenu variations, but customizing anything outside its predefined templates shows clear limits. Right now, it seems to default to generating a full-screen canvas based on the `deviceType` (for instance, even when instructed to "only render the component," it still forces a massive 2560×2048 canvas).*
 <video controls muted loop playsinline width="600">
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/stitch-fixed-canvas-2.mp4" type="video/mp4">
 </video>
