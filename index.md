@@ -11,5 +11,5 @@ Dev notes, UI experiments, and design logs.
 
 ## Notes
 - [2026-03-23 — OpenPencil / Pencil / Stitch comparison](/notes/openpencil-pencil-stitch_KR.md)
-- [2026-03-31 — Figma write to canvas-KR](/notes/Figma-write-to-canvas.md)
-- [2026-04-01 — Figma write to canvas](/notes/draftv01_EN.md)
+- [2026-03-31 — Legacy Design System test-KO](/notes/Figma-write-to-canvas.md)
+- [2026-04-01 — Legacy Design System test-EN](/notes/legacy-design-system-test.en.md)
