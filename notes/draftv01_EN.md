@@ -103,7 +103,7 @@ Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)
 
 **The Findings:**  
 • All three struggle with fine details. Getting a "pixel-perfect" reproduction right now takes a lot of time and tokens.  
-• Corner radii, margins, and typography adjustments start to break down even with fine-tuning (Figma gives the highest quality out of the three).  
+• Corner radii, margins, and typography adjustments start to break down even with fine-tuning (with Figma giving the highest quality out of the three—as expected).  
 • Without exact coordinates, tools often fail to recognize existing elements and just blindly overwrite the canvas (This was reduced by using scripts and `skill.md`).  
 • Tiny details like vector icons are frequently left out or altered.  
 
