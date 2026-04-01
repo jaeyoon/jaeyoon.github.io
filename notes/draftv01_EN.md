@@ -8,7 +8,7 @@ While Generative AI produces strong visuals when given more freedom, the real ch
 >• Figma Designs (Node/Section selection via MCP)  
 • Website URLs (HTML-based testing targets)  
 
-*(Input sources)* ![alt text](<Input - sources-2.png>)  
+*(Input sources)* ![alt text](</notes/assets/Input - sources.png>)  
 
 
 ---
@@ -40,8 +40,8 @@ Delegating generation to each agent using only the analysis results.
 token system  
 component system  
 
-![alt text](<Claude - DS iteration-1.png>)
-![alt text](<Codex - DS iteration-1.png>)
+![alt text](</notes/assets/Claude - DS iteration.png>)
+![alt text](</notes/assets/Codex - DS iteration.png>)
 **The Findings:**  
 Claude scaled the data into ready-to-use specs, detailing component architecture and exact dimensions. Codex chose to keep it brief, summarizing the high-level flow and direction even when it had more data. Since these were zero-shot prompts with no fine-tuning, both models landed in the "Mid-to-Low" quality range—you can expect some overlapping layers, missing parts, and layout shifts.
 
@@ -74,13 +74,20 @@ Comparing tools during the "Output" phase. This is mainly limited by which tools
 • `Pencil.dev`  
 • `Figma (write to canvas)`    
 Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)  
- 
+
+#### Pencil.dev
+<video controls muted loop playsinline width="600">
+  <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-sidemenu-3-agents.mp4" type="video/mp4">
+</video>
+
 
 **The Findings:**  
 • All three struggle with fine details. Getting a "pixel-perfect" reproduction right now takes a lot of time and tokens.  
 • Corner radii, margins, and typography adjustments start to break down even with fine-tuning (Figma gives the highest quality out of the three).  
 • Without exact coordinates, tools often fail to recognize existing elements and just blindly overwrite the canvas (This was reduced by using scripts and `skill.md`).  
 • Tiny details like vector icons are frequently left out or altered.  
+
+https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-sidemenu-3-agents.mp4
 
 ---
 ### Takeaways
