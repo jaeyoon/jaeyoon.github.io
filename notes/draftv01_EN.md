@@ -56,9 +56,10 @@ Testing "structural integrity vs. recomposition" with A/B variants based on the 
 Claude builds step-by-step; it treats 'B' as an evolution of 'A,' separating what to keep from what to change and documenting everything down to the code level. Codex treats 'A' and 'B' as two separate concepts, quickly splitting them by mood and direction. Because of this, Claude builds continuous results based on previous definitions, while Codex frames each variant as a completely standalone proposal. In the end, Claude feels more like dev-ready documentation, while Codex is better for quick visual concepting ready to plug into a generation tool.
 
 
-**Phase 3-4 Speed (System + Variant)**
+**Phase 3-4 Speed (System + Variant)**  
+
 | Case | Claude | Codex |
-|--------|--------|--------|
+|------|--------|--------|
 | Node / Sidemenu | system 5m / variant 4m = 9m | system 3m / variant 2m = 5m |
 | Section / Desktop | system 1m / variant 6m = 7m | system 3m / variant 2m = 5m |
 | Section / Header | system 1m / variant 4m = 5m | system 3m / variant 2m = 5m |
