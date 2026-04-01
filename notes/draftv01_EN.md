@@ -75,16 +75,31 @@ Comparing tools during the "Output" phase. This is mainly limited by which tools
 • `Figma (write to canvas)`    
 Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)  
 
+
+#### Google Stitch
+*Stitch generated 3 sidemenu variations, but the canvas size is fixed*
+<video controls muted loop playsinline width="600">
+  <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/stitch-fixed-canvas-2.mp4" type="video/mp4">
+</video>
+
 #### Pencil.dev
-*sidemenu - 3 agents*
+*Sidemenu component — rendered across 3 agents*
 <video controls muted loop playsinline width="600">
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-sidemenu-3-agents.mp4" type="video/mp4">
 </video>
 
-*alertbar - 4 agents*
+*Alert bar component — rendered across 4 agents*
 <video controls muted loop playsinline width="600">
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/pencil-4-agents-1.mp4" type="video/mp4">
 </video>
+
+
+#### Figma (write to canvas)
+*Creating variables via MCP write*
+<video controls muted loop playsinline width="600">
+  <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/figma-write-variables.mp4" type="video/mp4">
+</video>
+
 
 **The Findings:**  
 • All three struggle with fine details. Getting a "pixel-perfect" reproduction right now takes a lot of time and tokens.  
