@@ -1,2 +1,2 @@
 잘 돼나?
-![[Sidemenu.png]]
+![Sidemenu](</notes/assets/Sidemenu.png>)
