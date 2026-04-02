@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "System_Handover_Note.md",
+                "file": "notes/sync-test-note.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "System_Handover_Note"
+              "title": "sync-test-note"
             }
           }
         ]
@@ -164,13 +164,23 @@
               "icon": "lucide-list",
               "title": "System_Handover_Note 의 개요"
             }
+          },
+          {
+            "id": "c1d886d17f501ce8",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,16 +191,18 @@
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
       "bases:새 베이스 생성하기": false,
-      "githobs:Manage a github issue": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
   "active": "4950e44c4e537dd7",
   "lastOpenFiles": [
+    "assets/T2-side/장비배치.png",
+    "assets/T2-side",
     "notes/obsidian-sync.md",
-    "notes/Figma-write-to-canvas.md",
+    "notes/sync-test-note.md",
     "System_Handover_Note.md",
+    "notes/Figma-write-to-canvas.md",
     "notes/legacy-design-system-test.en.md",
     "notes/openpencil-pencil-stitch_KR.md"
   ]
