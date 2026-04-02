@@ -75,9 +75,11 @@
   - 셸 래퍼: [`scripts/gemini_selection_transform.sh`](/Users/jayden/Workspace/github-page/scripts/gemini_selection_transform.sh)
   - 실제 로직: [`scripts/llm_selection_transform.py`](/Users/jayden/Workspace/github-page/scripts/llm_selection_transform.py)
 - Obsidian Shell Commands에는 현재 3개 명령이 등록됨
+  - 이후 톤 전용 명령까지 추가되어 현재는 4개 명령 구조
   - `Gemini translate selection (KO to EN)`
   - `Gemini make selection shorter`
   - `Gemini make selection more detailed`
+  - `Gemini rewrite selection with tone`
 
 ### 실행 피드백 개선
 - 사용자가 "실행 중인지 알기 어렵다"는 피드백을 줌
@@ -123,6 +125,27 @@
   - `<<캐주얼하게>> <<너무 장황하지 않게>>`
 - 본문 중간의 `<<...>>`는 지시문으로 쓰는 용도가 아님
 
+### 톤 전용 재작성 명령
+- 사용자가 "기존 영어 문장 뒤에 `<<...>>`만 붙여 톤을 바꿀 수 있느냐"는 요구를 추가로 제시
+- 이에 따라 길이를 크게 바꾸지 않고 의미를 유지한 채 스타일만 재작성하는 전용 모드 `rewrite`를 추가함
+- Obsidian 명령명:
+  - `Gemini rewrite selection with tone`
+- 사용 의도:
+  - 이미 영어인 문장에 대해
+  - `<<프로페셔널한 톤으로>>`
+  - `<<캐주얼한 블로그 톤으로>>`
+  같은 지시만 붙여 재작성
+
+### 톤 전용 명령 사용 예시
+- 입력:
+  - `Even though Claude and Codex started with the exact same MCP calls and inputs, ... <<프로페셔널한 톤으로>>`
+- 실행:
+  - `Gemini rewrite selection with tone`
+- 기대 결과:
+  - 길이는 크게 변하지 않음
+  - 핵심 의미 유지
+  - 선택한 톤만 반영한 영어 문장으로 치환
+
 ### 언어 고정 처리
 - `translate`는 한국어 원문을 영어로 번역
 - `shorten` / `expand`는 입력이 영어 문장이라는 전제
@@ -142,6 +165,9 @@
 - 스타일 지시문 테스트:
   - `<<너무 딱딱하지 않은 캐주얼한 블로그 톤으로>>` 지시를 붙여 상세화 시도
   - 초기 1회는 출력 언어가 한국어로 흔들렸으나, 이후 프롬프트 보강으로 영어 출력 고정 확인
+- 톤 전용 rewrite 테스트:
+  - 기존 영어 문단 뒤에 `<<프로페셔널한 톤으로>>`를 붙여 실행
+  - 결과가 더 정제된 professional register로 재작성되는 것 확인
 
 ## 5. `.gitignore` 정리
 - 파일: [`.gitignore`](/Users/jayden/Workspace/github-page/.gitignore)
