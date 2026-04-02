@@ -53,13 +53,13 @@
   - `export PATH="/opt/homebrew/bin:$PATH" && /opt/homebrew/bin/gemini "... {{selection}}"`
 - `{{selection}}`을 직접 명령행 인자로 넣기 때문에 따옴표/줄바꿈/긴 문자열에서 깨질 가능성이 있었음
 
-### 변경 후
+### 1차 변경
 - PATH augmentation:
   - `environment_variable_path_augmentations.darwin = /opt/homebrew/bin`
 - alias:
-  - `Gemini translate selection`
+  - `Gemini translate selection (KO to EN)`
 - 명령:
-  - `gemini --prompt "위 한국어 원문을 자연스럽고 세련된 영어로 번역해줘. 부가 설명 없이 번역문만 출력해."`
+  - 래퍼 스크립트 호출 방식으로 전환
 - 입력:
   - `stdin = {{selection}}`
 - 출력:
@@ -69,6 +69,79 @@
 - Obsidian GUI PATH 문제 완화
 - 선택 텍스트 escaping 안정성 향상
 - 선택 후 실행 시 본문에 번역문 치환되는 구조 유지
+
+### 2차 변경: 래퍼 스크립트 + 다중 명령 구조
+- 기존 단일 스크립트는 폐기하고, 현재는 아래 구조로 동작
+  - 셸 래퍼: [`scripts/gemini_selection_transform.sh`](/Users/jayden/Workspace/github-page/scripts/gemini_selection_transform.sh)
+  - 실제 로직: [`scripts/llm_selection_transform.py`](/Users/jayden/Workspace/github-page/scripts/llm_selection_transform.py)
+- Obsidian Shell Commands에는 현재 3개 명령이 등록됨
+  - `Gemini translate selection (KO to EN)`
+  - `Gemini make selection shorter`
+  - `Gemini make selection more detailed`
+
+### 실행 피드백 개선
+- 사용자가 "실행 중인지 알기 어렵다"는 피드백을 줌
+- 이에 따라 각 명령의 `execution_notification_mode`를 `permanent`로 설정
+- 실행 중에는 `Executing: ...` 알림이 뜨고, 완료 시 자동으로 사라지게 구성
+- 플러그인 전체 기본값은 `if-long`으로 두되, 위 3개 명령은 개별적으로 `permanent` 적용
+
+### 폴백 체인
+- 사용자가 `gemini` CLI는 토큰/트래픽/과부하로 중단이 잦다고 피드백
+- `codex` CLI는 현 환경에서 번역 단발 호출 시 panic / state db / permission 문제로 불안정해 보였으므로 일단 제외
+- 현재 적용된 순차 폴백:
+  1. `gemini` 기본 모델
+  2. `gemini-2.5-flash`
+  3. `claude -p --bare --tools ""`
+
+### 폴백 구현 판단 근거
+- `gemini` CLI는 로컬에서 가장 먼저 정상 응답 확인
+- `gemini flash`는 더 가벼운 fallback으로 적합
+- `claude` CLI는 비대화형 출력 구조는 적합하지만, 테스트 당시 `Not logged in` 상태였음
+- 따라서 최종 폴백 체인은 구현해 두되, 실제 마지막 fallback이 동작하려면 사용자 측 Claude 로그인 필요
+
+### stderr 노이즈 처리
+- `gemini`는 번역 본문과 별개로 MCP/credential 관련 잡음 로그를 `stderr`에 출력함
+- 초기에는 Obsidian notification으로 이 로그가 잠깐 표시됨
+- 현재는 `llm_selection_transform.py` 내부에서 알려진 Gemini stderr 패턴을 필터링하여 불필요한 잡음은 숨김
+- 실제 오류만 notification으로 전달되도록 조정
+
+### 커스텀 스타일 지시문 문법
+- 사용자가 선택 텍스트 끝에 스타일/톤 지시를 붙일 수 있게 추가 구현
+- 현재 문법:
+  - `<<...>>`
+- 예시:
+  - `This recording shows four parallel agents generating four Alert Multiselector iterations (v1-v4) via the Figma MCP on pencil.dev. <<너무 딱딱하지 않은 캐주얼한 블로그 톤으로>>`
+
+### 왜 `<<...>>`를 선택했는가
+- `[[...]]`는 Obsidian 링크 문법과 충돌
+- `{...}`는 코드/템플릿 문맥과 섞이기 쉬움
+- `<<...>>`는 Markdown과의 충돌이 상대적으로 적고 육안으로 구분하기 쉬움
+
+### 지시문 처리 규칙
+- 현재는 **선택 텍스트 맨 끝에 붙은 `<<...>>` 블록만** 스타일 지시문으로 인식
+- 여러 개도 허용:
+  - `<<캐주얼하게>> <<너무 장황하지 않게>>`
+- 본문 중간의 `<<...>>`는 지시문으로 쓰는 용도가 아님
+
+### 언어 고정 처리
+- `translate`는 한국어 원문을 영어로 번역
+- `shorten` / `expand`는 입력이 영어 문장이라는 전제
+- 한국어 지시문이 붙어도 출력 언어가 흔들리지 않도록:
+  - `shorten`
+  - `expand`
+  에는 "출력은 반드시 영어로만"이라는 제약을 프롬프트에 추가함
+
+### 실제 검증 결과
+- 번역 테스트:
+  - 입력: `이 기능은 사용자의 반복 작업을 줄여 줍니다.`
+  - 출력: `This feature streamlines repetitive tasks for users.`
+- 축약 테스트:
+  - 출력: `This feature streamlines repetitive user tasks.`
+- 상세화 테스트:
+  - 설명적인 영어 문장으로 확장 정상
+- 스타일 지시문 테스트:
+  - `<<너무 딱딱하지 않은 캐주얼한 블로그 톤으로>>` 지시를 붙여 상세화 시도
+  - 초기 1회는 출력 언어가 한국어로 흔들렸으나, 이후 프롬프트 보강으로 영어 출력 고정 확인
 
 ## 5. `.gitignore` 정리
 - 파일: [`.gitignore`](/Users/jayden/Workspace/github-page/.gitignore)
@@ -136,3 +209,5 @@
 - 실행 중 주기적 pull이 필요하면 `autoPullInterval` 설정
 - 비디오 임베드까지 자동교정 확장 가능
 - 일반 문서 위키링크 `[[...]]` 웹 호환화가 필요하면 별도 변환 로직 추가 가능
+- Claude CLI를 실제 fallback으로 쓰려면 사용자 측 로그인 상태를 점검할 필요 있음
+- `<<...>>` 지시문을 본문 중간이나 프론트매터 수준까지 확장할지는 별도 정책 필요
