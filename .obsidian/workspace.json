@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Figma-write-to-canvas.md",
-                "mode": "source",
+                "file": "System_Handover_Note.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Figma-write-to-canvas"
+              "title": "System_Handover_Note"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Figma-write-to-canvas.md",
+                "file": "System_Handover_Note.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Figma-write-to-canvas 의 백링크"
+              "title": "System_Handover_Note 의 백링크"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Figma-write-to-canvas.md",
+                "file": "System_Handover_Note.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Figma-write-to-canvas 의 나가는 링크"
+              "title": "System_Handover_Note 의 나가는 링크"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Figma-write-to-canvas.md",
+                "file": "System_Handover_Note.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Figma-write-to-canvas 의 개요"
+              "title": "System_Handover_Note 의 개요"
             }
           }
         ]
@@ -188,9 +188,10 @@
   },
   "active": "4950e44c4e537dd7",
   "lastOpenFiles": [
+    "notes/obsidian-sync.md",
+    "notes/Figma-write-to-canvas.md",
     "System_Handover_Note.md",
     "notes/legacy-design-system-test.en.md",
-    "notes/obsidian-sync.md",
     "notes/openpencil-pencil-stitch_KR.md"
   ]
 }

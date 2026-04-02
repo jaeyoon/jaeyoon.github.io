@@ -6,7 +6,9 @@
   "show_autocomplete_menu": true,
   "working_directory": "",
   "default_shells": {},
-  "environment_variable_path_augmentations": {},
+  "environment_variable_path_augmentations": {
+    "darwin": "/opt/homebrew/bin"
+  },
   "show_installation_warnings": true,
   "error_message_duration": 20,
   "notification_message_duration": 10,
@@ -26,15 +28,15 @@
     {
       "id": "7rnxbkvzdo",
       "platform_specific_commands": {
-        "default": "export PATH=\"/opt/homebrew/bin:$PATH\" && /opt/homebrew/bin/gemini \"다음 텍스트를 자연스럽고 세련된 영어로 번역해줘. 부가 설명 없이 번역 결과만 출력할 것: {{selection}}\""
+        "default": "gemini --prompt \"위 한국어 원문을 자연스럽고 세련된 영어로 번역해줘. 부가 설명 없이 번역문만 출력해.\""
       },
       "shells": {},
-      "alias": "",
+      "alias": "Gemini translate selection",
       "icon": null,
       "confirm_execution": false,
       "ignore_error_codes": [],
       "input_contents": {
-        "stdin": null
+        "stdin": "{{selection}}"
       },
       "output_handlers": {
         "stdout": {
