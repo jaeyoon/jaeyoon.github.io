@@ -95,7 +95,7 @@ Stitch (Creation) / Pencil (Refinement) / Figma write (Exact Execution)
 
 
 #### Figma (write to canvas)
-*Creating variables via MCP write*
+*Created variables from Figma design elements, including detailed properties like button radius.*
 <video controls muted loop playsinline width="600">
   <source src="https://pub-b3f343132a0f482d88780d5a9ba50665.r2.dev/figma-write-variables.mp4" type="video/mp4">
 </video>
