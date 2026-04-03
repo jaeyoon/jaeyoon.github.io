@@ -7,8 +7,7 @@ Generative AI produces strong visuals when given more freedom, but the real chal
 ### Step 1
 >• Figma Designs (Node/Section selection via MCP)  
 • Website URLs (HTML-based testing targets)  
-
-*(Input sources)* ![alt text](</notes/assets/Input - sources.png>)  
+ ![alt text](</notes/assets/Input - sources.png>)  
 
 
 ---
