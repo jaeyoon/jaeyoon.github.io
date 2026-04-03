@@ -1,4 +1,5 @@
-## OpenPencil.dev
+## OpenPencil.dev  
+
 
 | 테스트                                              | OpenPencil 결과                                     | Figma MCP 대비 판정                      |
 | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
@@ -10,7 +11,7 @@
 > 테스트용 샘플들..  
 
 1. Alert Overlay
-![Pasted image 20260403102807|313](<assets/Pasted image 20260403102807.png>)
+![Pasted image 20260403102807|198](<assets/Pasted image 20260403102807.png>)
 
 2. local-navigation
 ![Pasted image 20260403102748](<assets/Pasted image 20260403102748.png>)
