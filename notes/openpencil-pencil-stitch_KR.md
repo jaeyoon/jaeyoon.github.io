@@ -1,3 +1,9 @@
+---
+layout: page
+title: "OpenPencil.dev 테스트"
+permalink: /notes/openpencil-pencil-stitch_KR/
+---
+
 ## OpenPencil.dev  
 
 
@@ -8,23 +14,24 @@
 | 3. AppLayout                                     | shell hierarchy는 잘 읽지만 내부 메뉴/탭/헤더 의미가 평준화됨        | shell parser로는 유효, truth source로는 부족 |
 | 4. Fullwidth-content in AppLayout                | 거의 배경 shell만 남고 내부 content expansion 실패           | 사실상 실패                               |
 | 5. Detached-frame-component / detached fullwidth | 3컬럼 구조와 block 반복은 풀리지만 실제 운영 텍스트는 여전히 placeholder | 4번보다 개선됐지만, 의미 복원은 여전히 실패            |
+
 > 테스트용 샘플들..  
 
 1. Alert Overlay
-![Pasted image 20260403102807|198](<assets/Pasted image 20260403102807.png>)
+![Pasted image 20260403102807|198](</assets/Pasted image 20260403102807.png>)
 
 2. local-navigation
-![Pasted image 20260403102748](<assets/Pasted image 20260403102748.png>)
+![Pasted image 20260403102748](</assets/Pasted image 20260403102748.png>)
 
 3. AppLayout
-![Pasted image 20260403102759](<assets/Pasted image 20260403102759.png>)
+![Pasted image 20260403102759](</assets/Pasted image 20260403102759.png>)
 
 
 4. Fullwidth-content in AppLayout
-![Pasted image 20260403103053](<assets/Pasted image 20260403103053.png>)
+![Pasted image 20260403103053](</assets/Pasted image 20260403103053.png>)
 
 5. Detached-frame-component / detached fullwidth
-![Pasted image 20260403104150](<assets/Pasted image 20260403104150.png>)
+![Pasted image 20260403104150](</assets/Pasted image 20260403104150.png>)
 
 
 ---
