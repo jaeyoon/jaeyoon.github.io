@@ -18,7 +18,7 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 > 테스트용 샘플들..  
 
 1. Alert Overlay
-![Pasted image 20260403102807|198](</notes/assets/Pasted image 20260403102807.png>)
+<img src="/notes/assets/Pasted image 20260403102807.png" alt="Pasted image 20260403102807" width="198">
 
 2. local-navigation
 ![Pasted image 20260403102748](</notes/assets/Pasted image 20260403102748.png>)
@@ -42,12 +42,12 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 - nested instance로 들어가면 구조는 남아도 semantic content 누락됨.
 - full page, settings screen, override-heavy UI에서는 Figma MCP와 격차 크게 벌어짐.
 
-### 결론
+**결론**
 
 - Alert Overlay 처럼 단순한 인스턴스 분석용도로는 OpenPencil도 꽤 쓸만함.
 - local-navigation, AppLayout부터는 “구조는 읽는데 의미는 못 살림” 쪽에 가까움.
 - Fullwidth 계열에서는 OpenPencil이 parser 성격 강하게 드러냄, Figma MCP만이 안정적인 truth source 역할 할 수 있어 보임.
 
-> 실무 포지셔닝  
+>**실무 포지셔닝**
 > Figma MCP: 실제 구현 기준, truth source  
 > OpenPencil: 구조 추출, skeleton 파악, 전처리용 parser
