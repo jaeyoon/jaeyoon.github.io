@@ -17,29 +17,33 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 > 테스트용 샘플들..  
 
 
-1. Auto Layout frame  
+1. Standalone component  
     - 단순한 프레임 Auto Layout 구조, 각 행은 텍스트와 아이콘 인스턴스.
     - A simple Auto Layout frame structure, with each row comprising text and icon instances.
 
     <img src="/notes/assets/Pasted image 20260403102807.png" alt="Pasted image 20260403102807" width="198">
 
-2. Variable Components  
+2. Component set  
     - 6개 Variables 로 분류된 디자인. (swap용)
     - Design categorized by 6 variables (for swapping).
 
     ![Pasted image 20260403102748](</notes/assets/Pasted image 20260403102748.png>)
 
-3. Shell component
+3. App shell
     - 인스턴스 swap 으로 각 화면별 디자인을 담을수 있는 Shell 디자인 프레임.
     - A Shell design framework capable of accommodating screen-specific designs through instance swapping.
 
     ![Pasted image 20260403102759](</notes/assets/Pasted image 20260403102759.png>)
 
-4. swap 으로 nested 될 full-width 디자인
+4. Full-page instance
+	- Swap 으로 nested 될 full-width 디자인
+	- Full-width design for nested Swap integration.
+
     ![Pasted image 20260403103053](</notes/assets/Pasted image 20260403103053.png>)
 
-5. 4의 분석에 어려움이 있어 인스턴스를 detached 시켜 재시도. (구조는 좌측 레이어 참조)
-    Step 4 analysis encountered issues, requiring an instance detachment and retry. (See the left layer for structure.)
+5. Detached frame
+	- 4의 분석에 어려움이 있어 인스턴스를 detached 시켜 재시도. (구조는 좌측 레이어 참조). 
+    - Step 4 analysis encountered issues, requiring an instance detachment and retry. (See the left layer for structure.)
 
     ![Pasted image 20260403104150](</notes/assets/Pasted image 20260403104150.png>)
 
