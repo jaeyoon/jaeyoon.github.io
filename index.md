@@ -4,8 +4,7 @@ title: "Home"
 permalink: /
 ---
 Design experiment logs.
-
-디자인 실험 기록.
+디자인 실험 기록
 
 ## Pages
 - [About](/about/)

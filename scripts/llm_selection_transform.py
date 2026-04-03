@@ -231,7 +231,14 @@ def try_claude(prompt: str) -> ProviderResult:
     )
 
 
-def get_providers(mode: str):
+def get_providers(mode: str, provider_hint: str = "auto"):
+    if provider_hint == "gemini":
+        return [("gemini", try_gemini)]
+    if provider_hint == "flash":
+        return [("gemini-flash", try_gemini_flash)]
+    if provider_hint == "claude":
+        return [("claude", try_claude)]
+
     if mode == "memo-fast":
         return [
             ("gemini-flash", try_gemini_flash),
@@ -244,6 +251,12 @@ def get_providers(mode: str):
             ("gemini-flash", try_gemini_flash),
             ("claude", try_claude),
         ]
+    if mode == "translate":
+        return [
+            ("gemini-flash", try_gemini_flash),
+            ("gemini", try_gemini),
+            ("claude", try_claude),
+        ]
     return [
         ("gemini", try_gemini),
         ("gemini-flash", try_gemini_flash),
@@ -253,6 +266,7 @@ def get_providers(mode: str):
 
 def main() -> int:
     mode = sys.argv[1] if len(sys.argv) > 1 else "translate"
+    provider_hint = sys.argv[2] if len(sys.argv) > 2 else "auto"
     raw_input = sys.stdin.read()
     if not raw_input.strip():
         return 0
@@ -272,7 +286,7 @@ def main() -> int:
     if not body.strip():
         return 0
 
-    providers = get_providers(mode)
+    providers = get_providers(mode, provider_hint)
 
     errors: list[str] = []
     for name, runner in providers:
