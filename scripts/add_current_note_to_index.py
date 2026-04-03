@@ -102,6 +102,8 @@ def insert_into_notes_section(index_text: str, entry: str, permalink: str, title
         break
 
     updated_lines = lines[:insert_at] + [entry] + lines[insert_at:]
+    if insert_at + 1 < len(updated_lines) and updated_lines[insert_at + 1].strip().startswith("---"):
+        updated_lines.insert(insert_at + 1, "")
     updated_text = "\n".join(updated_lines)
     if index_text.endswith("\n"):
         updated_text += "\n"
