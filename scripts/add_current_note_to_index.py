@@ -57,10 +57,31 @@ def build_entry(title: str, permalink: str) -> str:
     return f"- [{title}]({permalink})"
 
 
-def insert_into_notes_section(index_text: str, entry: str, permalink: str) -> tuple[str, bool]:
+def local_markdown_target(relative_file: str) -> str:
+    path = pathlib.PurePosixPath(relative_file)
+    without_suffix = path.with_suffix("").as_posix()
+    if " " in without_suffix:
+        return f"<{without_suffix}>"
+    return without_suffix
+
+
+def build_best_effort_entry(relative_file: str, title: str, permalink: str) -> str:
+    relative_without_suffix = pathlib.PurePosixPath(relative_file).with_suffix("").as_posix()
+    permalink_path = permalink.strip("/")
+    local_target = local_markdown_target(relative_file)
+
+    # If note path and web route align, use one link that works in both places.
+    if relative_without_suffix == permalink_path:
+        return f"- [{title}]({relative_without_suffix})"
+
+    # Otherwise prefer a local Obsidian link and keep an explicit web link.
+    return f"- [{title}]({local_target}) ([web]({permalink}))"
+
+
+def insert_into_notes_section(index_text: str, entry: str, permalink: str, title: str) -> tuple[str, bool]:
     lines = index_text.splitlines()
 
-    if any(f"]({permalink})" in line for line in lines):
+    if any(f"]({permalink})" in line or f"- [{title}]" in line for line in lines):
         return index_text, False
 
     notes_heading_index = None
@@ -108,8 +129,8 @@ def process_file(root: pathlib.Path, relative_file: str) -> tuple[bool, str]:
         raise ValueError("Current note must have front matter with both title and permalink.")
 
     index_text = index_path.read_text(encoding="utf-8")
-    entry = build_entry(title, permalink)
-    updated, changed = insert_into_notes_section(index_text, entry, permalink)
+    entry = build_best_effort_entry(relative_file, title, permalink)
+    updated, changed = insert_into_notes_section(index_text, entry, permalink, title)
     if not changed:
         return False, entry
 

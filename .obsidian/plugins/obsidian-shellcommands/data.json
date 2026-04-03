@@ -342,11 +342,76 @@
       "command_palette_availability": "enabled",
       "preactions": [],
       "variable_default_values": {}
+    },
+    {
+      "id": "prepare_current_note_for_publish",
+      "platform_specific_commands": {
+        "default": "python3 scripts/prepare_current_note_for_publish.py {{file_path:relative}} {{_public_slug}}"
+      },
+      "shells": {},
+      "alias": "Prepare current note for publish",
+      "icon": null,
+      "confirm_execution": false,
+      "ignore_error_codes": [],
+      "input_contents": {},
+      "output_handlers": {
+        "stdout": {
+          "handler": "notification",
+          "convert_ansi_code": true
+        },
+        "stderr": {
+          "handler": "notification",
+          "convert_ansi_code": true
+        }
+      },
+      "output_wrappers": {
+        "stdout": null,
+        "stderr": null
+      },
+      "output_channel_order": "stdout-first",
+      "output_handling_mode": "buffered",
+      "execution_notification_mode": "permanent",
+      "events": {},
+      "debounce": null,
+      "command_palette_availability": "enabled",
+      "preactions": [
+        {
+          "type": "prompt",
+          "enabled": true,
+          "prompt_id": "prompt_public_note_slug"
+        }
+      ],
+      "variable_default_values": {}
     }
   ],
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "prompt_public_note_slug",
+      "title": "Public note slug",
+      "description": "GitHub Pages permalink and filename slug",
+      "preview_shell_command": false,
+      "fields": [
+        {
+          "type": "single-line-text",
+          "label": "Slug",
+          "description": "Use lowercase letters, numbers, and hyphens only. Example: link-test",
+          "default_value": "",
+          "target_variable_id": "cv_public_slug",
+          "required": true
+        }
+      ],
+      "execute_button_text": "Use slug"
+    }
+  ],
   "builtin_variables": {},
-  "custom_variables": [],
+  "custom_variables": [
+    {
+      "id": "cv_public_slug",
+      "name": "public_slug",
+      "description": "Public note slug entered before publish preparation",
+      "default_value": null
+    }
+  ],
   "custom_variables_notify_changes_via": {
     "obsidian_uri": true,
     "output_assignment": true

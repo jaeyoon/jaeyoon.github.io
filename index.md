@@ -15,7 +15,7 @@ Design experiment logs.
 - [2026-03-31 — Legacy Design System test-KO](/notes/Figma-write-to-canvas.md)
 - [2026-04-01 — Legacy Design System test-EN](/notes/legacy-design-system-test.en.md)
 - [2026-04-03 — OpenPencil.dev 테스트](/notes/openpencil-pencil-stitch_KR/)
-
-- [링크 테스트](/notes/링크-테스트/)
-- [note-add](/notes/note-add/)
+- [링크 테스트](<notes/링크 테스트>) ([web](/notes/링크-테스트/))
+- [note-add](notes/note-add)
+- [무제](notes/test-note-added-capture)
 ----- 
