@@ -35,7 +35,7 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 
 
 ---
-패턴은 일관적으로 보임.
+**패턴**  
 
 - 단순하고 detached된 컴포넌트일수록 OpenPencil이 잘 읽음.
 - variant와 override 늘어나면 텍스트 의미 혼란스러워짐.
@@ -48,6 +48,6 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 - local-navigation, AppLayout부터는 “구조는 읽는데 의미는 못 살림” 쪽에 가까움.
 - Fullwidth 계열에서는 OpenPencil이 parser 성격 강하게 드러냄, Figma MCP만이 안정적인 truth source 역할 할 수 있어 보임.
 
->**실무 포지셔닝**
-> Figma MCP: 실제 구현 기준, truth source  
+>**실무 포지셔닝**  
+> Figma MCP: 실제 구현 기준, truth source    
 > OpenPencil: 구조 추출, skeleton 파악, 전처리용 parser
