@@ -18,20 +18,20 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 > 테스트용 샘플들..  
 
 1. Alert Overlay
-![Pasted image 20260403102807|198](</assets/Pasted image 20260403102807.png>)
+![Pasted image 20260403102807|198](</notes/assets/Pasted image 20260403102807.png>)
 
 2. local-navigation
-![Pasted image 20260403102748](</assets/Pasted image 20260403102748.png>)
+![Pasted image 20260403102748](</notes/assets/Pasted image 20260403102748.png>)
 
 3. AppLayout
-![Pasted image 20260403102759](</assets/Pasted image 20260403102759.png>)
+![Pasted image 20260403102759](</notes/assets/Pasted image 20260403102759.png>)
 
 
 4. Fullwidth-content in AppLayout
-![Pasted image 20260403103053](</assets/Pasted image 20260403103053.png>)
+![Pasted image 20260403103053](</notes/assets/Pasted image 20260403103053.png>)
 
 5. Detached-frame-component / detached fullwidth
-![Pasted image 20260403104150](</assets/Pasted image 20260403104150.png>)
+![Pasted image 20260403104150](</notes/assets/Pasted image 20260403104150.png>)
 
 
 ---
