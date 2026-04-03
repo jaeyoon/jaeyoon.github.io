@@ -22,6 +22,9 @@
 5. Detached-frame-component / detached fullwidth
 ![Pasted image 20260403104150](<assets/Pasted image 20260403104150.png>)
 
+
+>전: 
+
 핵심 패턴은 일관적입니다.
 
 - 단순하고 detached된 컴포넌트일수록 OpenPencil이 잘 읽습니다.
@@ -39,3 +42,24 @@
 
 - Figma MCP: 실제 구현 기준, truth source
 - OpenPencil: 구조 추출, skeleton 파악, 전처리용 parser
+
+---
+> 후:
+
+핵심 패턴은 일관적으로 보임.
+
+- 단순하고 detached된 컴포넌트일수록 OpenPencil이 잘 읽
+- variant와 override가 늘어나면 먼저 텍스트가 혼란스러워짐
+- nested instance로 들어가면 구조는 남아도 semantic content는 누락됨.
+- full page, settings screen, override-heavy 요소들에서는 Figma MCP와 격차가 크게 벌어집니다.
+
+한 줄 결론,
+
+- 단순 요소 예) Alert Overlay만 보면 OpenPencil 는 쓸만함.
+- local-navigation, AppLayout부터는 “구조는 읽는데 의미는 못 살림" 쪽에 가까움.
+- Fullwidth 계열에서는 OpenPencil이 parser 성격을 강하게 드러내고, Figma MCP만이 안정적인 truth source 역할을 할수 있어 보임.
+
+실무 포지셔닝은 5개 결과를 종합했을때,
+- Figma MCP: 실제 구현 기준, truth source
+- OpenPencil: 구조 추출, skeleton 파악, 전처리용 parser
+

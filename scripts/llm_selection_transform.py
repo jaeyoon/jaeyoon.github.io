@@ -21,6 +21,10 @@ KNOWN_GEMINI_STDERR_PATTERNS = [
 
 TRAILING_DIRECTIVES_RE = re.compile(r"(?s)(?P<body>.*?)(?:\s*(?P<directives>(?:<<[^<>]+>>\s*)+))$")
 DIRECTIVE_RE = re.compile(r"<<([^<>]+)>>")
+CONTEXT_SELECTION_START = "<<<MEMO_SELECTION_START>>>"
+CONTEXT_SELECTION_END = "<<<MEMO_SELECTION_END>>>"
+CONTEXT_NOTE_START = "<<<MEMO_NOTE_START>>>"
+CONTEXT_NOTE_END = "<<<MEMO_NOTE_END>>>"
 MEMO_SKILL_PATH = (
     Path(__file__).resolve().parent.parent
     / ".claude"
@@ -71,6 +75,24 @@ def load_memo_skill() -> str:
         )
 
 
+def parse_memo_context_input(raw_text: str) -> tuple[str, str]:
+    selection_match = re.search(
+        rf"(?s){re.escape(CONTEXT_SELECTION_START)}\n?(.*?){re.escape(CONTEXT_SELECTION_END)}",
+        raw_text,
+    )
+    note_match = re.search(
+        rf"(?s){re.escape(CONTEXT_NOTE_START)}\n?(.*?){re.escape(CONTEXT_NOTE_END)}",
+        raw_text,
+    )
+
+    if not selection_match or not note_match:
+        return raw_text.strip(), ""
+
+    selection = selection_match.group(1).strip()
+    note_content = note_match.group(1).strip()
+    return selection, note_content
+
+
 def build_prompt(mode: str, body: str, directives: list[str]) -> str:
     directive_text = ""
     if directives:
@@ -112,7 +134,34 @@ def build_prompt(mode: str, body: str, directives: list[str]) -> str:
             " 출력은 반드시 한국어로만 하고, 부가 설명 없이 수정된 문장만 출력해."
             f"{directive_text}\n적용할 메모체 스킬:\n{memo_skill}\n\n원문:\n{body}"
         )
+    if mode == "memo-fast":
+        memo_skill = load_memo_skill()
+        return (
+            "아래 한국어 선택 문장만 핵심 의미를 유지한 채 짧고 담백한 한국어 메모체로 바꿔줘."
+            " 속도가 중요하니 과도한 해석은 하지 말고, 입력 자체에서 읽히는 의미 범위 안에서만 정리해."
+            " 아래 스킬 규칙을 우선 적용해."
+            " 출력은 반드시 한국어로만 하고, 부가 설명 없이 수정된 문장만 출력해."
+            f"{directive_text}\n적용할 메모체 스킬:\n{memo_skill}\n\n선택 문장:\n{body}"
+        )
     raise ValueError(f"unsupported mode: {mode}")
+
+
+def build_memo_context_prompt(selection: str, note_content: str, directives: list[str]) -> str:
+    directive_text = ""
+    if directives:
+        directive_text = (
+            "\n추가 스타일/톤 지시:\n- " + "\n- ".join(directives) + "\n"
+        )
+
+    memo_skill = load_memo_skill()
+    return (
+        "아래 한국어 선택 문장만 한국어 메모체로 다시 써줘."
+        " 선택 문장만 출력해야 하며, 전체 문서를 다시 쓰면 안 돼."
+        " note content는 의미 보존과 지시 대상 해석을 위한 참고 맥락으로만 사용해."
+        " 아래 스킬 규칙을 우선 적용하고, 규칙이 충돌하면 더 중립적이고 짧은 메모체를 선택해."
+        " 출력은 반드시 한국어로만 하고, 부가 설명 없이 수정된 문장만 출력해."
+        f"{directive_text}\n적용할 메모체 스킬:\n{memo_skill}\n\n선택 문장:\n{selection}\n\n참고용 note content:\n{note_content}"
+    )
 
 
 def run_command(
@@ -182,23 +231,48 @@ def try_claude(prompt: str) -> ProviderResult:
     )
 
 
+def get_providers(mode: str):
+    if mode == "memo-fast":
+        return [
+            ("gemini-flash", try_gemini_flash),
+            ("gemini", try_gemini),
+            ("claude", try_claude),
+        ]
+    if mode == "memo-context":
+        return [
+            ("gemini", try_gemini),
+            ("gemini-flash", try_gemini_flash),
+            ("claude", try_claude),
+        ]
+    return [
+        ("gemini", try_gemini),
+        ("gemini-flash", try_gemini_flash),
+        ("claude", try_claude),
+    ]
+
+
 def main() -> int:
     mode = sys.argv[1] if len(sys.argv) > 1 else "translate"
     raw_input = sys.stdin.read()
     if not raw_input.strip():
         return 0
 
-    body, directives = parse_input(raw_input)
+    if mode == "memo-context":
+        selection_raw, note_content = parse_memo_context_input(raw_input)
+        body, directives = parse_input(selection_raw)
+        if not body.strip():
+            return 0
+        prompt = build_memo_context_prompt(body, note_content, directives)
+    else:
+        body, directives = parse_input(raw_input)
+        if not body.strip():
+            return 0
+        prompt = build_prompt(mode, body, directives)
+
     if not body.strip():
         return 0
 
-    prompt = build_prompt(mode, body, directives)
-
-    providers = [
-        ("gemini", try_gemini),
-        ("gemini-flash", try_gemini_flash),
-        ("claude", try_claude),
-    ]
+    providers = get_providers(mode)
 
     errors: list[str] = []
     for name, runner in providers:
