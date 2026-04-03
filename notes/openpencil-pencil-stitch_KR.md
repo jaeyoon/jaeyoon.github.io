@@ -4,8 +4,7 @@ title: "OpenPencil.dev 테스트"
 permalink: /notes/openpencil-pencil-stitch_KR/
 ---
 
-## OpenPencil.dev  
-
+### OpenPencil.dev  (https://openpencil.dev)
 
 | 테스트                                              | OpenPencil 결과                                     | Figma MCP 대비 판정                      |
 | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
@@ -17,22 +16,24 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 
 > 테스트용 샘플들..  
 
-1. Alert Overlay
+1. Auto Layout frame
 - 단순한 프레임 Auto Layout 구조, 각 행은 텍스트와 아이콘 인스턴스.
 
 <img src="/notes/assets/Pasted image 20260403102807.png" alt="Pasted image 20260403102807" width="198">
 
-3. local-navigation
+2. Variable Components
+- 6개 Variables 로 분류된 디자인. (swap용)
+- 6개 Variables 로 분류된 디자인. (swap용)
 ![Pasted image 20260403102748](</notes/assets/Pasted image 20260403102748.png>)
 
-3. AppLayout
+3. 인스턴스 swap 으로 각 화면별 디자인을 담을수 있는 Shell 디자인 프레임.
 ![Pasted image 20260403102759](</notes/assets/Pasted image 20260403102759.png>)
 
 
-4. Fullwidth-content in AppLayout
+4. 3의 디자인에 swap 으로 배치될 풀스크린 디자인
 ![Pasted image 20260403103053](</notes/assets/Pasted image 20260403103053.png>)
 
-5. Detached-frame-component / detached fullwidth
+5. 4의 디자인 구조 분석에 어려움이 있어 detach 인스턴스로 재시도. (구조는 좌측 레이어 참조)
 ![Pasted image 20260403104150](</notes/assets/Pasted image 20260403104150.png>)
 
 
@@ -46,9 +47,9 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 
 **결론**
 
-- Alert Overlay 처럼 단순한 인스턴스 분석용도로는 OpenPencil도 꽤 쓸만함.
-- local-navigation, AppLayout부터는 “구조는 읽는데 의미는 못 살림” 쪽에 가까움.
-- Fullwidth 계열에서는 OpenPencil이 parser 성격 강하게 드러냄, Figma MCP만이 안정적인 truth source 역할 할 수 있어 보임.
+- 1. Alert Overlay 처럼 단순한 인스턴스 분석용도로는 OpenPencil도 꽤 쓸만함.
+- 2,3. local-navigation, AppLayout부터는 “구조는 읽는데 의미는 못 살림” 쪽에 가까움.
+- 4.5 Fullwidth 계열에서는 OpenPencil이 parser 성격 강하게 드러냄, Figma MCP만이 안정적인 truth source 역할 할 수 있어 보임.
 
 >**실무 포지셔닝**  
 > Figma MCP: 실제 구현 기준, truth source    
