@@ -49,5 +49,5 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 - Fullwidth 계열에서는 OpenPencil이 parser 성격 강하게 드러냄, Figma MCP만이 안정적인 truth source 역할 할 수 있어 보임.
 
 > 실무 포지셔닝  
-> Figma MCP: 실제 구현 기준, truth source
+> Figma MCP: 실제 구현 기준, truth source  
 > OpenPencil: 구조 추출, skeleton 파악, 전처리용 parser
