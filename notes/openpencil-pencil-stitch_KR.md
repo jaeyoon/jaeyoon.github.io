@@ -16,6 +16,7 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 
 > 테스트용 샘플들..  
 
+
 1. Auto Layout frame
 - 단순한 프레임 Auto Layout 구조, 각 행은 텍스트와 아이콘 인스턴스.
 - A simple Auto Layout frame structure, with each row comprising text and icon instances.
