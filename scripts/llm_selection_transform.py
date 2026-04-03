@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 
 
 KNOWN_GEMINI_STDERR_PATTERNS = [
@@ -20,6 +21,13 @@ KNOWN_GEMINI_STDERR_PATTERNS = [
 
 TRAILING_DIRECTIVES_RE = re.compile(r"(?s)(?P<body>.*?)(?:\s*(?P<directives>(?:<<[^<>]+>>\s*)+))$")
 DIRECTIVE_RE = re.compile(r"<<([^<>]+)>>")
+MEMO_SKILL_PATH = (
+    Path(__file__).resolve().parent.parent
+    / ".claude"
+    / "skills"
+    / "memo-rewrite-lite"
+    / "SKILL.md"
+)
 
 
 @dataclass
@@ -50,6 +58,17 @@ def parse_input(raw_text: str) -> tuple[str, list[str]]:
         return text, []
     body = (match.group("body") or "").rstrip()
     return body, directives
+
+
+def load_memo_skill() -> str:
+    try:
+        return MEMO_SKILL_PATH.read_text(encoding="utf-8").strip()
+    except FileNotFoundError:
+        return (
+            "우선 규칙:\n"
+            "- 중립 어조 유지: 단정형은 `~보임`, `~것 같음`, `~위험해보임`처럼 완곡하게 변환\n"
+            "- 단문 메모체: `~함`, `~됨`, `~봄`, `~보임`, `~해봄`, `~적합해보임` 같은 종결 우선 사용"
+        )
 
 
 def build_prompt(mode: str, body: str, directives: list[str]) -> str:
@@ -84,6 +103,14 @@ def build_prompt(mode: str, body: str, directives: list[str]) -> str:
             " 길이는 크게 늘리거나 줄이지 말고, 주어진 스타일/톤 지시가 있으면 그에 맞게 반영해."
             " 출력은 반드시 영어로만 하고, 부가 설명 없이 수정된 영어 문장만 출력해."
             f"{directive_text}\n원문:\n{body}"
+        )
+    if mode == "memo":
+        memo_skill = load_memo_skill()
+        return (
+            "아래 한국어 문장을 핵심 의미는 유지한 채, 더 간단하고 빠르게 읽히는 한국어 메모체로 바꿔줘."
+            " 아래 스킬 규칙을 우선 적용하고, 규칙이 충돌하면 더 중립적이고 짧은 메모체를 선택해."
+            " 출력은 반드시 한국어로만 하고, 부가 설명 없이 수정된 문장만 출력해."
+            f"{directive_text}\n적용할 메모체 스킬:\n{memo_skill}\n\n원문:\n{body}"
         )
     raise ValueError(f"unsupported mode: {mode}")
 
@@ -181,7 +208,7 @@ def main() -> int:
             return 0
         errors.append(f"{name}: {result.reason}")
 
-    sys.stderr.write("All translation fallbacks failed.\n")
+    sys.stderr.write("All selection transform fallbacks failed.\n")
     sys.stderr.write("\n".join(errors) + "\n")
     return 1
 
