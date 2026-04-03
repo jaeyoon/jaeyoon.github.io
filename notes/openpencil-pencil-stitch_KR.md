@@ -18,9 +18,11 @@ permalink: /notes/openpencil-pencil-stitch_KR/
 > 테스트용 샘플들..  
 
 1. Alert Overlay
+- 단순한 프레임 Auto Layout 구조, 각 행은 텍스트와 아이콘 인스턴스.
+
 <img src="/notes/assets/Pasted image 20260403102807.png" alt="Pasted image 20260403102807" width="198">
 
-2. local-navigation
+3. local-navigation
 ![Pasted image 20260403102748](</notes/assets/Pasted image 20260403102748.png>)
 
 3. AppLayout
