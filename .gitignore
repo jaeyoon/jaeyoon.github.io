@@ -1,1 +1,12 @@
+.DS_Store
+**/.DS_Store
+
+.claude/
+.githooks/
+.obsidian/
+README.md
+about.md
+index.md
+logs/
+scripts/
 private-repo-staging/
